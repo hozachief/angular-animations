@@ -8,6 +8,8 @@ import {
   //...
 } from '@angular/animations';
 
+import { RouterOutlet } from '@angular/router';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -17,5 +19,16 @@ import {
   ]
 })
 export class AppComponent {
-  title = 'angular-animations';
+  // To disable all animations for an Angular app.
+  // Disabling animations application-wide is useful during end-to-end (E2E) testing.
+  @HostBinding('@.disabled')
+  public animationsDisabled = false;
+
+  prepareRoute(outlet: RouterOutlet) {
+    return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
+  }
+
+  toggleAnimations() {
+    this.animationsDisabled = !this.animationsDisabled;
+  }
 }

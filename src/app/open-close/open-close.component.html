@@ -1,0 +1,21 @@
+<nav>
+  <button (click)="toggle()">Toggle Open/Close</button>
+</nav>
+
+<!--
+When you have defined an animation trigger for a component, you can attach it to
+an element in that component's template by wrapping the trigger name in brackets
+and preceding it with an @ symbol. Then...bind the trigger to a template expression...
+'openClose' is the name of the trigger, and the expression evaluates to a defined
+animation state.
+The animation is exectuted/triggered when the expression value changes to a new state.
+When the isOpen expression evaluates to a defined state of open or closed, it notifies
+the trigger openClose of a state change. Then it's up to the openClose code to handle
+the state changes and kick off a state change animation.
+-->
+<div [@openClose]="isOpen ? 'open' : 'closed'"
+  (@openClose.start)="onAnimationEvent($event)"
+  (@openClose.done)="onAnimationEvent($event)"
+  class="open-close-container">
+  <p>The box is now {{ isOpen ? 'Open' : 'Closed' }}!</p>
+</div>
