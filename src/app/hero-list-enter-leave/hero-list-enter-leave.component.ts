@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {trigger, state, style, transition, animate} from '@angular/animations';
 import { Hero } from '../hero';
-import { HEROES } from '../mock-heroes';
 
 @Component({
   selector: 'app-hero-list-enter-leave',
@@ -33,11 +32,5 @@ export class HeroListEnterLeaveComponent {
 
   removeHero(id: number) {
     this.remove.emit(id);
-  }
-
-  heroesSlice = HEROES.slice();
-
-  onRemove(id: number) {
-    this.heroesSlice = this.heroesSlice.filter(hero => hero.id !== id);
   }
 }

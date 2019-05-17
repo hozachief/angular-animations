@@ -1,12 +1,23 @@
 <h1>Animations</h1>
 
+Toggle All Animations <input type="checkbox" [checked]="!animationsDisabled" (click)="toggleAnimations()"/>
+
 <nav>
   <a id="open-close" routerLink="/open-close" routerLinkActive="active">Open/Close</a>
   <a id="status" routerLink="/status" routerLinkActive="active">Status Slider</a>
-  <!--<a id="enter-leave" routerLink="/enter-leave" routerLinkActive="active">Enter/Leave</a>-->
+  <a id="enter-leave" routerLink="/enter-leave" routerLinkActive="active">Enter/Leave</a>
+  <a id="auto" routerLink="/auto" routerLinkActive="active">Auto Calculation</a>
   <a id="heroes" routerLink="/heroes" routerLinkActive="active">Filter/Stagger</a>
+  <a id="hero-groups" routerLink="/hero-groups" routerLinkActive="active">Hero Groups</a>
 </nav>
 
+<!--
+Tell Angular router where to render the views when matched with a route. Set a router
+outlet by inserting <router-outlet> container inside the root AppComponent template.
+<router-outlet> container has an attribute directive that contains data about active
+routes and their states, based on the data on the data property that we set in the
+route configuration.
+-->
 <div [@routeAnimations]="prepareRouter(outlet)" >
   <router-outlet #outlet="outlet"></router-outlet>
 </div>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { state, trigger, style, transition, animate, AnimationEvent } from '@angular/animations';
+import { state, trigger, style, transition, animate, AnimationEvent, keyframes } from '@angular/animations';
 
 @Component({
   selector: 'app-open-close',
@@ -8,6 +8,7 @@ import { state, trigger, style, transition, animate, AnimationEvent } from '@ang
     // An animation requires a trigger, so that it knows when to start.
     // trigger() function collects the states and transitions, and gives the animation
     // a name, so you can attach it to the triggering element in the HTML template.
+    // Animation trigger() function emits callbacks when it starts and when it finishes.
     trigger('openClose', [
       // state() function to define different states to call at the end of each transition.
       // Takes two arguments: a unique name like 'open' or 'closed and a style() function.
@@ -21,6 +22,17 @@ import { state, trigger, style, transition, animate, AnimationEvent } from '@ang
         opacity: 0.5,
         backgroundColor: 'green'
       })),
+      // TESTING
+      // Use keyframes to create a pulse effect in your animations dy defining styles at
+      // specific offset throughout the animation.
+      /*transition('* => *', [
+        animate('1s', keyframes ( [
+          style({ opacity: 0.1, offset: 0.1 }),
+          style({ opacity: 0.6, offset: 0.2 }),
+          style({ opacity: 1, offset: 0.5 }),
+          style({ opacity: 0.2, offset: 0.7 })
+        ]))
+      ]),*/
       // Animation transition to specify the changes that occur between one state and another
       // over a period of time.
       // transition() function accepts two arguments: the first argument accepts an expression

@@ -4,6 +4,11 @@
   <input #criteria (input)="updateCriteria(criteria.value)" placeholder="Search Heroes" />
 </form>
 
+<!--
+The filter (i.e. Search Heroes text box above here.) works in real time as you type.
+Elements leave the page as you type each new letter and the filter gets stricter.
+The heroes list gradually re-enters the page as you delete each letter in the filter box. 
+-->
 <ul class="heroes" [@filterAnimation]="heroTotal">
   <li *ngFor="let hero of heroes" class="hero">
     <div class="inner">

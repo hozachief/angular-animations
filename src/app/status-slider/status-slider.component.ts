@@ -8,6 +8,11 @@ import { trigger, state, transition, style, animate, keyframes } from '@angular/
       state('inactive', style({ backgroundColor: 'blue' })),
       state('active', style({ backgroundColor: 'orange' })),
       transition('* => active', [
+        // Angular's keyframe() function is similar to keyframes in CSS. Keyframes allow
+        // several style changes within a single timing segment. For example instead of just
+        // fading...could change color several times over a single 2-second timespan.
+        // Keyframes include an offset that defines the point in the animation where each
+        // style change occurs. Keyframes are optional.
         animate('2s', keyframes([
           style({ backgroundColor: 'blue', offset: 0 }),
           style({ backgroundColor: 'red', offset: 0.8 }),
